@@ -1,0 +1,130 @@
+.top-ctr{
+  width: 100vw;
+  height: 100vh;
+  background-image: $wood4;
+  background-position: center center;
+  background-size: cover;
+  .top-contents{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    &__text{
+      text-align: center;
+      .title{
+        position: absolute;
+        top: 40%;
+        left: 45%;
+        margin-right: -55%;
+        transform: translate(-50%, -50%);
+        text-shadow: $shadow-white;
+        font-size: 90px;
+        padding-left: 1.4em;
+        text-indent: -1.4em;
+        #reload{
+          text-shadow: $shadow-red;
+          padding-left: 1.3em;
+          text-indent: -1.3em;
+          cursor: help;
+        }
+        #reload:hover{
+          text-shadow: $shadow-red-hover;
+          color: #FF0000;
+        }
+      }
+      .title-sub{
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        margin-top: 15px;
+        text-shadow: $shadow-line;
+        font-size: 30px;
+      }
+      ul{
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        li{
+          position: relative;
+          margin: 0 15px;
+          -webkit-transition: none;
+          transition: none;
+          a{
+            img{
+              height: 45px;
+              width: 45px;
+            }
+          }
+        }
+        li:hover{
+          top: -4px;
+        }
+        li:active{
+          top: 3px;
+          text-shadow: none;
+          box-shadow: $shadow-white;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $media_width_tab) {
+  .top-ctr{
+    .top-contents{
+      &__text{
+        ul{
+          font-size: 30px;
+          li{
+            margin: 0 10px;
+            a{
+              img{
+                height: 35px;
+                width: 35px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: $media_width_sp) {
+  .top-ctr{
+    .top-contents{
+      &__text{
+        .title{
+          top: 35%;
+          left: 40%;
+          margin-right: -60%;
+          transform: translate(-50%, -50%);
+          font-size: 80px;
+        }
+        .title-sub{
+          top: 56%;
+          transform: translate(-50%, -50%);
+          font-size: 20px;
+          span::before{
+            content: "\A" ;
+            white-space: pre;
+          }
+        }
+        ul{
+          display: list-item;
+          li{
+            margin: 15px 0;
+          }
+        }
+      }
+    }
+  }
+}

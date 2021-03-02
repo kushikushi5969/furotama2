@@ -1,0 +1,12 @@
+.alert{
+  font-size: 20px;
+  text-align: center;
+  text-shadow: $shadow-line;
+  padding: 0.25em 0.5em;
+  background-image: $wood3;
+  border-radius: 0.5rem;
+  position: fixed;
+  top: 55px;
+  right: 5px;
+  z-index: 1001;
+}

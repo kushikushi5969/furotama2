@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "tops#index"
+  
   devise_for :users, controllers: {
     passwords: 'users/passwords',
     sessions: 'users/sessions',

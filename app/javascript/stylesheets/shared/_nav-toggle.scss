@@ -1,0 +1,45 @@
+// nav-toggle
+#nav-toggle {
+	position: fixed;
+	top: 15px;
+	left: 15px;
+  height: 32px;
+  z-index: 1000;
+}
+#nav-toggle > div {
+	position: relative;
+	width: 32px;
+}
+#nav-toggle span {
+	width: 100%;
+	height: 2px;
+	left: 0;
+	display: block;
+	background: #000;
+	position: absolute;
+	-webkit-transition: .35s ease-in-out;
+	-moz-transition: .35s ease-in-out;
+	transition: .35s ease-in-out;
+}
+
+// #nav-toggle close
+#nav-toggle span:nth-child(1) {
+	top: 0;
+}
+#nav-toggle span:nth-child(2) {
+	top: 11px;
+}
+#nav-toggle span:nth-child(3) {
+	top: 22px;
+}
+
+// close
+.close #container {
+	margin-left: 0;
+}
+.close .header-logo {
+	margin-left: 1em;
+}
+.close #nav-toggle span {
+	background: $white;
+}

@@ -1,0 +1,112 @@
+.post-index {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 10px 80px;
+  .post-block {
+    font-family: arial, sans-serif;
+    background-image: $wood4;
+    height: 500px;
+    width: 310px;
+    box-shadow: $shadow-line;
+    margin: 0 auto;
+    margin-top: 15px;
+    position: relative;
+    -webkit-transition: none;
+    transition: none;
+    .post-user-box {
+      .nav-link {
+        display: flex;
+        .post-avater{
+          margin: 10px 0px 10px 5px;
+          height: 50px;
+          width: 50px;
+          background: $white;
+          border-radius: 50% !important;
+        }
+        .post-user__name {
+          font-size: 18px;
+          margin: 20px 0px 10px 15px ;
+        }
+      }
+    }
+
+    .post-image-box {
+      .post-image {
+        height: 310px;
+        width: 310px;
+      }
+    }
+
+    .post-name-box {
+      font-size: 18px;
+      margin: 5px 0px 0px 10px;
+    }
+
+    .post-info-box{
+      display: flex;
+      justify-content: space-between;
+      .post-area-box {
+        font-size: 14px;
+        margin: 5px 0px 0px 10px;
+      }
+
+      .post-status-box {
+        display: flex;
+        font-size: 14px;
+        .post-favorite {
+          margin: 5px 5px;
+        }
+        .post-comment {
+          margin: 5px 5px;
+        }
+      }
+    }
+
+    .post-category-box {
+      font-size: 20px;
+      margin: 10px 0px 0px 10px;
+      i {
+        margin: 0px 5px;
+      }
+    }
+  }
+  .post-block:hover {
+    top: -5px;
+  }
+}
+
+@media (max-width: $media_width_tab) {
+  .post-index {
+    display: flex;
+    flex-wrap: wrap;
+    .post-block {
+      height: 450px;
+      width: 280px;
+
+      .post-image-box {
+        .post-image {
+          height: 280px;
+          width: 280px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $media_width_sp) {
+  .post-index {
+    display: list-item;
+    .post-block {
+      height: 430px;
+      margin: 0 auto;
+      margin-top: 10px;
+
+      .post-image-box {
+        .post-image {
+          height: 250px;
+          width: 280px;
+        }
+      }
+    }
+  }
+}

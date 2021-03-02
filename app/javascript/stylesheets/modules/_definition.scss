@@ -1,0 +1,97 @@
+// @media
+$media_width_tab: 999px;
+$media_width_sp: 490px;
+
+// colors
+$white: #ffffff;
+$yellow: #FFFF00;
+$red: #FF0000;
+
+// shadows
+$shadow-white: 2px  2px 10px #777 ,-2px  2px 10px #777 ,2px -2px 10px #777 ,-2px -2px 10px #777;
+$shadow-red: 3px  3px 13px #FF0000 ,-3px  3px 13px #FF0000 ,3px -3px 13px #FF0000 ,-3px -3px 13px #FF0000;
+$shadow-red-hover: 5px  5px 14px #ffffff ,-5px  5px 14px #ffffff ,5px -5px 14px #ffffff ,-5px -5px 14px #ffffff;
+$shadow-red-hover2: 2px  2px 7px #ffffff ,-2px  2px 7px #ffffff ,2px -2px 7px #ffffff ,-2px -2px 7px #ffffff;
+$shadow-line: 2px 0 0 #000, 0 2px 0 #000, -2px 0 0 #000, 0 -2px 0 #000;
+
+// fonts
+@font-face {
+  font-family: 'Pigmo';
+  src: url('/assets/Pigmo-00.otf');
+}
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@font-face {
+  font-family: 'Russo One', cursive;
+  src: url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+}
+
+// backgoround-images
+$wood: url('/bg-wood1.png');
+$wood2: url('/bg-wood2.jpg');
+$wood3: url('/bg-wood3.jpg');
+$wood4: url('/bg-wood4.jpg');
+
+// class
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: 'Pigmo';
+  color: $white;
+  .wrapper {
+    height: 100%;
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+#container {
+  background-image: $wood;
+  margin-left: 260px;
+  position: relative;
+  -moz-transition: margin-left .25s linear;
+	-webkit-transition: margin-left .25s linear;
+  transition: margin-left .25s linear;
+  z-index: 900;
+}
+.contents {
+  padding: 70px 0px 470px;
+  height: 100%;
+  margin: 0 auto;
+  background-image: $wood;
+}
+@media (max-width: $media_width_sp) {
+  .contents {
+    height: 100%;
+  }
+}
+.purpose {
+  text-align: center;
+  text-shadow: $shadow-line;
+  font-size: 45px;
+}
+.btn {
+  text-align: center;
+  cursor: pointer;
+  color: $white;
+  text-shadow: $shadow-line;
+  font-family: 'Pigmo';
+  background-image: $wood2;
+  padding: 0.2em 0.5em;
+  border: 3px solid $white;
+  box-shadow: $shadow-line;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+  a {
+    img {
+      vertical-align: bottom;
+      border-radius: 50% !important;
+      border: 1px solid #000;
+    }
+  }
+}
+.btn:hover {
+  text-shadow: $shadow-white;
+  box-shadow: $shadow-white;
+}

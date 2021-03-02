@@ -1,0 +1,174 @@
+.post-form {
+  text-align: center;
+  text-shadow: $shadow-line;
+  margin: 0 auto;
+  width: 700px;
+  padding: 20px 10px 20px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  background-image: $wood3;
+}
+.imf-box {
+  margin: 0 auto;
+}
+
+#previews {
+  display: flex;
+  .input{
+    background-color: $white;
+    border: 2px dashed #000;
+    height: 185px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    .upload-lab{
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+      .upload-lab-text{
+        color: #000;
+        text-shadow: none;
+        font-size: 18px;
+        font-family: arial, sans-serif;
+        cursor: pointer;
+        i {
+          font-size: 25px;
+        }
+        .image_upload{
+          display: none;
+        }
+      }
+    }
+  }
+  .image-preview {
+    .image-preview__wrapper {
+      .image-preview-btn {
+        font-size: 16px;
+        margin: 10px auto;
+        width: 50px;
+        text-shadow: none;
+        box-shadow: $shadow-line;
+      }
+    }
+  }
+}
+
+.input-box {
+  display: flex;
+  .text-box {
+    display: list-item;
+    list-style: none;
+    width: 50%;
+  }
+  .areas-box {
+    display: list-item;
+    list-style: none;
+    width: 50%;
+  }
+}
+
+.post-form-group {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  font-size: 24px;
+  width: 100%;
+  > label {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .section {
+    margin-left: 1em;
+    text-align: left !important;
+    margin-bottom: 10px;
+  }
+  .caution {
+    font-size: 14px;
+  }
+  .text-length {
+    font-size: 16px;
+    font-family: 'Russo One', cursive;
+    margin-right: 2em;
+    text-align: right !important;
+  }
+}
+
+.post-form-control {
+  font-size: 18px;
+  font-family: arial, sans-serif;
+  width: 90%;
+  margin-bottom: 5px;
+  padding: 0.4em;
+  border: solid 1px $white;
+  border-radius: 10px;
+  box-shadow: $shadow-line;
+}
+
+.form-check-category {
+  font-size: 18px;
+  font-family: arial, sans-serif;
+  text-shadow: none;
+  color: #000;
+  label {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: $media_width_tab){
+  .purpose {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: $media_width_sp) {
+  .purpose {
+    font-size: 30px;
+  }
+
+  .post-form {
+    width: 85vw;
+  }
+
+  .post-form-group {
+    font-size: 22px;
+  }
+
+  .post-form-control {
+    font-size: 16px;
+  }
+
+  #previews {
+    display: flex;
+    flex-wrap: wrap;
+    .input {
+      height: 170px;
+      .upload-lab {
+        .upload-lab-text {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .input-box {
+    display: list-item;
+    list-style: none;
+    .text-box {
+      width: 100%;
+    }
+    .areas-box {
+      width: 100%;
+    }
+  }
+
+  .form-check-category {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

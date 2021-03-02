@@ -1,0 +1,9 @@
+.follow-now, .follows {
+  padding: 0.2em 0.5em;
+  margin-top: 20px;
+  cursor: pointer;
+  position: relative;
+}
+.follow-now:hover, .follows:hover {
+  top: -3px;
+}

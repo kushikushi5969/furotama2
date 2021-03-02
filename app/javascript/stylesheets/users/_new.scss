@@ -1,0 +1,100 @@
+.user-form{
+  text-align: center;
+  text-shadow: $shadow-line;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px 0px 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  background-image: $wood3;
+}
+
+.user-form-group {
+  margin-bottom: 10px;
+  font-size: 24px;
+  > label {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+}
+
+.user-form-control {
+  font-size: 18px;
+  font-family: arial, sans-serif;
+  width: 350px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: solid 1px $white;
+  border-radius: 10px;
+  box-shadow: $shadow-line;
+}
+
+.user-form-control-email {
+  font-size: 18px;
+  font-family: arial, sans-serif;
+  width: 350px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: solid 1px $white;
+  border-radius: 10px;
+  box-shadow: $shadow-line;
+}
+
+@media (max-width: $media_width_tab){
+  .user-form{
+    width: 85vw;
+  }
+  .user-form-group {
+    font-size: 20px;
+    width: 90%;
+    margin: 10px auto;
+    > label {
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+  }
+  .user-form-control {
+    width: 90%;
+  }
+  .user-form-control-email {
+    width: 90%;
+  }
+}
+
+.form-img{
+  margin-top: 10px;
+}
+.form-img:hover{
+  text-shadow: $shadow-line;
+  box-shadow: $shadow-line;
+}
+.hidden{
+  display: none;
+}
+.delete-box{
+  display: inline-block;
+  width: 50px;
+  margin-top: 5px;
+}
+.delete-box:hover{
+  text-shadow: $shadow-line;
+  box-shadow: $shadow-line;
+}
+.user-btn{
+  margin-top: 15px;
+  font-size: 25px;
+}
+.gest-btn,
+.new-btn,
+.login-btn{
+  display: inline-block;
+  font-size: 30px;
+  margin-top: 10px;
+  a{
+    img{
+      height: 30px;
+      width: 30px;
+    }
+  }
+}

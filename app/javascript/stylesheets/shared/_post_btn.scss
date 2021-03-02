@@ -1,0 +1,31 @@
+.post-btn{
+  text-align: center;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 20px 25px;
+  display: flex;
+  a{
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+  i{
+    margin-top: 5px;
+    font-size: 30px;
+    text-shadow: $shadow-red;
+  }
+}
+.post-btn:hover {
+  text-shadow: $shadow-line;
+  box-shadow: $shadow-line;
+  i {
+    text-shadow: $shadow-red-hover2;
+    color: $red;
+ }
+}
+@media (max-width: $media_width_sp) {
+  .post-btn {
+    display: none;
+  }
+}

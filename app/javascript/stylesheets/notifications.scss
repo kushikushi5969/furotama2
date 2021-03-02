@@ -1,0 +1,93 @@
+.notification-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+.notification-board {
+  background-image: $wood3;
+  width: 80%;
+  min-height: 450px;
+  margin: 0 auto;
+  padding: 10px 20px 40px;
+  color: #000;
+  margin-top: 50px;
+  position: relative;
+  .notification-text {
+    font-size: 26px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.notification-lists {
+  background-image: $wood4;
+  width: 80%;
+  min-height: 450px;
+  margin: 0 auto;
+  padding: 10px 20px 40px;
+  border-radius: 25px;
+  text-shadow: $shadow-line;
+  box-shadow: $shadow-line;
+  margin-top: 50px;
+}
+.notification-list {
+  background-image: $wood;
+  margin: 10px 5px;
+  padding: 5px 10px;
+  display: flex;
+  font-family: 'Russo One', cursive;
+  position: relative;
+}
+.notification-user {
+  display: flex;
+  .user-name {
+    margin: 0px 0px 0px 5px;
+    a {
+      color: #4689FF;
+    }
+  }
+}
+.notification-avater {
+  width: 25px;
+  height: 25px;
+  background: $white;
+  box-shadow: $shadow-line;
+  border-radius: 50% !important;
+  margin-left: 5px;
+}
+.notification-info {
+  .notification-info-text {
+    a {
+      color: #4689FF;
+    }
+  }
+  .comment-text {
+    text-align: center;
+    color: #808080;
+  }
+  a {
+    color: #4689FF;
+  }
+}
+.notification-time {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+@media (max-width: $media_width_sp) {
+  .notification-lists {
+    margin-top: 5px;
+  }
+  .notification-list{
+    display: list-item;
+    list-style: none;
+    font-size: 12px;
+  }
+  .notification-avater {
+    width: 20px;
+    height: 20px;
+  }
+}

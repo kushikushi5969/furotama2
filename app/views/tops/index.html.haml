@@ -1,0 +1,36 @@
+#top-ctr.top-ctr
+  .top-contents
+    .top-contents__text
+      %h1.title
+        風
+        %br
+        呂
+        %br
+        %span#reload{onclick: "window.location.reload();", type: "button", value: ""} 魂
+      %h2.title-sub.first-title-sub
+        行ってらっしゃい,
+        %span 極楽の一時へ！
+      -# %ul.nav.home-nav
+      -#   - if user_signed_in?
+      -#     %li.btn.nav__btn
+      -#       = link_to posts_path, class: "nav-link" do
+      -#         %img{src: "/icon03.jpg"}
+      -#         風呂一覧
+      -#     %li.btn.nav__btn
+      -#       = link_to destroy_user_session_path, method: :delete, class: "nav-link" do
+      -#         %img{src: "/icon05.jpg"}
+      -#         退場
+      -#   - else
+      -#     %li.btn.nav__btn
+      -#       = link_to new_user_registration_path, class: "nav-link" do
+      -#         %img{src: "/icon01.jpg"}
+      -#         ご新規様
+      -#     %li.btn.nav__btn
+      -#       = link_to users_guest_sign_in_path, method: :post,　class: "nav-link" do
+      -#         %img{src: "/icon04.jpg"}
+      -#         お試し入場
+      -#     %li.btn.nav__btn
+      -#       = link_to new_user_session_path, class: "nav-link" do
+      -#         %img{src: "/icon02.jpg"}
+      -#         入場
+= render 'shared/footer'

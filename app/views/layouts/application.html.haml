@@ -2,11 +2,19 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Furotama2
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    %title 風呂魂
+    %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0", name: "viewport"}
+    = favicon_link_tag 'onsen_mark.ico'
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    -# %script{src: "//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.js"}
+    -# %script{src: "https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/js/perfect-scrollbar.jquery.min.js"}
+    -# %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", rel: "stylesheet", type: "text/css"}
+    -# %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css", rel: "stylesheet", type: "text/css"}
+    -# %script{src:"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}
   %body
-    = yield
+    .wrapper
+      = render 'shared/flash'
+      = yield

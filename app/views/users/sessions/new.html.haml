@@ -1,0 +1,31 @@
+= render 'shared/header'
+
+.contents
+  .purpose 入場
+  .user-form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .user-form-group
+        = f.label :email, "メールアドレス"
+        %br/
+        = f.email_field :email, autocomplete: "email", required: true, class: "user-form-control-email"
+      .user-form-group
+        = f.label :password, "パスワード"
+        %br/
+        = f.password_field :password, autocomplete: "current-password", required: true, class: "user-form-control"
+      - if devise_mapping.rememberable?
+        .user-form-group
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .user-form-group
+        = f.submit "入場", class: "btn user-btn"
+      = render "users/shared/links"
+      .btn.gest-btn
+        = link_to users_guest_sign_in_path, method: :post,　class: "nav-link" do
+          %img{src: "/icon04.jpg"}
+          お試し入場
+      .btn.new-btn
+        = link_to new_user_registration_path, class: "nav-link" do
+          %img{src: "/icon01.jpg"}
+          ご新規登録
+
+= render 'shared/footer'

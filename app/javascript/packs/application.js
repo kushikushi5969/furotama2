@@ -16,3 +16,5 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require ('tops')
+require ('users-avater')
+require ('flash')

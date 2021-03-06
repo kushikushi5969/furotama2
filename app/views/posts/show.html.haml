@@ -1,0 +1,117 @@
+= render 'shared/nav-toggle'
+= render 'shared/sidebar'
+#container
+  = render 'shared/header'
+  %main#main
+    .post-show-index
+      .post-show-header
+        .post-show-user
+          = link_to mypage_path(@post.user.id), class: "nav-link" do
+            .post-show-user__avater
+            - if @post.user.image.present?
+              = image_tag(@post.user.image.url, class: "post-show-avater avater__user")
+            - else
+              = image_tag("/gest-avater.png", class: "post-show-avater avater__gest")
+            .post-show-user__name
+              = @post.user.name
+        .post-show-day
+          = @post.created_at.to_s(:datetime_jp)
+      .post-show-name
+        = @post.name
+      .post-show-favorite#favorite{id: @post.id }
+        = render 'favorites/favorite'
+      .post-show-img
+        %ul.main-img-slider
+          - @post.images.each do |main|
+            %li.main-images
+              = image_tag main.image.url
+        %ul.thumb-img-slider
+          - @post.images.each do |thumb|
+            %li.thumb-images
+              = image_tag thumb.image.url
+      .post-show-info
+        .info-box1
+          .info-clm
+            .info-clm__title
+              名称
+            .info-clm__cont
+              = @post.name
+          .info-clm
+            .info-clm__title
+              地域
+            .info-clm__cont
+              = @post.area.name
+          .info-clm
+            .info-clm__title
+              住所
+            .info-clm__cont
+              = @post.address
+              #gmap.gmap
+                %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=#{ENV['GOOGLE_MAP_API_KEY']}&callback=initMap"}
+        .info-box2
+          .info-clm
+            .info-clm__title
+              おすすめポイント
+            .info-clm__cont
+              = @post.review
+          .info-clm
+            .info-clm__title2
+              カテゴリー
+            .info-clm__cont2
+              - @post.category_ids.each do |category|
+                - if category == 1
+                  %i.fas.fa-parking 駐車場有り
+                - if category == 2
+                  %i.fas.fa-utensils お食事処有り
+                - if category == 3
+                  %i.fas.fa-smoking 喫煙所有り
+                - if category == 4
+                  %i.fas.fa-credit-card クレジット払い可
+      - if current_user.id == @post.user.id || current_user.admin?
+        %ul.user-sections
+          %li.btn.edit-btn
+            = link_to edit_post_path(@post), class: "nav-link" do
+              編集
+          %li.btn.destroy-btn
+            = link_to post_path, method:"delete", class: "nav-link", data: { confirm: "本当に削除しますか？" } do
+              削除
+    %section.inner
+      .comments-box
+        .comments-form
+          .comments-title
+            コメントする
+          = render partial: 'comments/form', locals: { comment: @comment, post: @post }
+        .comments-area
+          %ul#comments-lists
+            = render partial: 'comments/index', locals: { comments: @comments }
+  = render 'shared/footer'
+
+:javascript
+  //マップオブジェクト
+  var gMap = null;
+  //マーカーオブジェクト
+  var gMarkerCenter = null;
+  function initMap() {
+    // 緯度経度から地図を表示
+    var lat = gon.post.latitude
+    var lng = gon.post.longitude
+    // 座標を設定
+    var myLatLng = new google.maps.LatLng(lat, lng)
+    var mapOptions = {
+      center: myLatLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    // マップオブジェクトの生成、マーカー生成
+    gMap = new google.maps.Map(document.getElementById("gmap"), mapOptions);
+    gMarkerCenter = drawMarkerCenterInit(myLatLng);
+  }
+  // マーカー生成関数
+  function drawMarkerCenterInit(pos) {
+    var markerCenter = new google.maps.Marker({
+      position: pos,
+      map: gMap,
+      draggable: true
+    });
+    return markerCenter;
+  }

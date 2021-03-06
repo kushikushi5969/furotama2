@@ -1,0 +1,14 @@
+= render 'shared/nav-toggle'
+= render 'shared/sidebar'
+#container
+  = render 'shared/header'
+  %main#main
+    = render 'shared/search'
+    .border-line
+    %section.inner
+      %ul.post-index
+        - @posts.each do |post|
+          = render 'shared/post', post: post
+      = paginate @posts
+  = render 'shared/post_btn'
+  = render 'shared/footer'

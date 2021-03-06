@@ -24,4 +24,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
+  resources :searches, only: [:index]
+  get 'random', to: 'searches#random_search'
 end

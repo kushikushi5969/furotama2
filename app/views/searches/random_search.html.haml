@@ -1,0 +1,62 @@
+= render 'shared/nav-toggle'
+= render 'shared/sidebar'
+#container
+  = render 'shared/header'
+  %main#main
+    .random-search-title
+      ダーツの旅風検索
+      = link_to random_path, 'data-no-turbolink' => false, class: "nav-link" do
+        %i.fas.fa-sync-alt
+    #gmap2.gmap
+      %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=#{ENV['GOOGLE_MAP_API_KEY']}&callback=initMap"}
+    .border-line
+    %section.inner
+      %ul.post-index
+        - @posts.each do |post|
+          = render 'shared/post', post: post
+  = render 'shared/post_btn'
+  = render 'shared/footer'
+:javascript
+  //マップオブジェクト
+  var map
+  //マーカーを複数表示させたいので、配列化
+  var marker = [];
+  //吹き出しを複数表示させたいので、配列化
+  var infoWindow = [];
+  function initMap() {
+    //コントローラーのインスタンス変数を代入
+    var posts = gon.postsinfo
+    map = new google.maps.Map(document.getElementById('gmap2'), {
+      center: { lat: 38.6585, lng: 139.7486 },
+      zoom: 5,
+    });
+    //foreach開始
+    for(var i = 0; i < posts.length; i++) {
+      //id振り分け
+      var id = posts[i][':id']
+      //各地点の緯度経度を算出
+      markerLatLng = new google.maps.LatLng({
+        lat: posts[i]['latitude'],
+        lng: posts[i]['longitude']
+      });
+      //各地点のマーカーを作成
+      marker[i] = new google.maps.Marker({
+        position: markerLatLng,
+        map: map,
+        animation: google.maps.Animation.DROP
+      });
+      //各地点の吹き出しを作成
+      infoWindow[i] = new google.maps.InfoWindow({
+        //吹き出しの内容
+        content: posts[i]['name']
+      });
+      // マーカーにクリックイベントを追加
+      markerEvent(i);
+    }
+  }
+  // マーカーをクリックしたら吹き出しを表示
+  function markerEvent(i) {
+    marker[i].addListener('click', function () {
+      infoWindow[i].open(map, marker[i]);
+    });
+  }

@@ -1,0 +1,46 @@
+= render 'shared/nav-toggle'
+= render 'shared/sidebar'
+#container
+  = render 'shared/header'
+  %main#main
+    = render 'shared/user-box'
+    .border-line
+    %section.inner
+      .follow-title
+        .following
+          = link_to following_mypage_path(current_user.id), class: "nav-link" do
+            フォロー
+            = current_user.followings.length
+            人
+        .follower
+          = link_to followers_mypage_path(current_user.id), class: "nav-link" do
+            フォロワー
+            = current_user.followers.length
+            人
+      .follow-type
+        .follow-type__text
+          = @title
+      .follow-index
+        - if @users.length == 0
+          .follow-nothing-text
+            まだフォロー・フォロワーは
+            %br
+            ありません。。
+        - else
+          %ul.follow-lists
+            - @users.each do |user|
+              %li.follow-list
+                .follow-user-avater
+                - if user.image.present?
+                  = link_to image_tag(user.image.url, class: "follow-avater avater__user"), mypage_path(user.id)
+                - else
+                  = link_to image_tag("/gest-avater.png", class: "follow-avater avater__gest"), mypage_path(user.id)
+                .follow-user-name
+                  = user.name
+                .follow-user-profile
+                  - if user.profile.present?
+                    = user.profile
+                  - else
+                    よろしくお願いします！
+          = paginate @users
+  = render 'shared/footer'

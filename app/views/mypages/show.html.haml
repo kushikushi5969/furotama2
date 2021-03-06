@@ -1,0 +1,40 @@
+= render 'shared/nav-toggle'
+= render 'shared/sidebar'
+#container
+  = render 'shared/header'
+  %main#main
+    = render 'shared/user-box'
+    .border-line
+    %section.inner
+      #show-tabs
+        %ul.show-tabs-list
+          %li#show-tab1.my-post
+            %a{href: "#panel1"}
+              = @user.name + "の投稿一覧"
+          %li#show-tab2.my-post
+            %a{href: "#panel2"}
+              %i.fas.fa-heart
+              いいね一覧
+        %ul.post-index#panel1.panel
+          - if @posts.length == 0
+            .my-post-bord
+              .my-post-bord__text
+                投稿が
+                %br
+                ありません。
+          - else
+            - @posts.each do |post|
+              = render 'shared/post', post: post
+        %ul.post-index#panel2.panel
+          - if @favo_posts.length == 0
+            .my-post-bord
+              .my-post-bord__text
+                いいね！が
+                %br
+                ありません。
+          - else
+            - @favo_posts.each do |post|
+              = render 'shared/post', post: post
+        = paginate @posts
+  = render 'shared/post_btn'
+  = render 'shared/footer'

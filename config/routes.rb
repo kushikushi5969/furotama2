@@ -15,13 +15,13 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    # collection do
-    #   get 'get_area_children', defaults: { format: 'json' }
-    # end
-    # collection do
-    #   get ':id/get_area_children', to: 'posts#get_area_children', defaults: { format: 'json' }
-    # end
     resources :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
+  end
+
+  resources :mypages, only: [:show, :destroy] do
+    member do
+      get :following, :followers
+    end
   end
 end

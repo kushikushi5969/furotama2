@@ -1,0 +1,38 @@
+%li.post-block
+  .post-user-box
+    = link_to mypage_path(post.user.id), class: "nav-link" do
+      .post-user__avater
+      - if post.user.image.present?
+        = image_tag(post.user.image.url, class: "post-avater avater__user")
+      - else
+        = image_tag("/gest-avater.png", class: "post-avater avater__gest")
+      .post-user__name
+        = post.user.name
+  .post-image-box
+    = link_to post_path(post.id), 'data-no-turbolink' => false, class: "nav-link" do
+      = image_tag(post.images[0].image.url, class: "post-image")
+  .post-name-box
+    = link_to post_path(post.id), 'data-no-turbolink' => false, class: "nav-link" do
+      = post.name
+  .post-info-box
+    .post-area-box
+      = post.area.name
+    %ul.post-status-box
+      %li.post-favorite#favorite
+        いいね
+        %i.fas.fa-heart.get-favorite
+        = post.favorites.length
+      %li.post-comment
+        コメント
+        %i.fas.fa-comment-dots
+        = post.comments.length
+  .post-category-box
+    - post.category_ids.each do |category|
+      - if category == 1
+        %i.fas.fa-parking
+      - if category == 2
+        %i.fas.fa-utensils
+      - if category == 3
+        %i.fas.fa-smoking
+      - if category == 4
+        %i.fas.fa-credit-card

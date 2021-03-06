@@ -1,0 +1,31 @@
+.user-prf-box
+  .avatar
+  - if @user.image.present?
+    = image_tag(@user.image.url, class: "mypage-avater avater__user")
+  - else
+    = image_tag("/gest-avater.png", class: "mypage-avater avater__gest")
+  = render 'relationships/follow', user: @user
+  .user-text
+    .user-first
+      .user-tag
+        名前
+      .user-name
+        = @user.name
+    .user-second
+      .user-tag
+        紹介文
+      .user-profile
+        - if @user.profile.present?
+          = @user.profile
+        - else
+          よろしくお願いします！
+  - if current_user.id == @user.id || current_user.admin?
+    .user-third
+      .btn.edit-user-btn
+        = link_to edit_user_registration_path, class: "nav-link" do
+          %i.fas.fa-cog
+            %span 編集
+      .btn.destroy-user-btn
+        = link_to mypage_path, method:"delete", class: "nav-link", data: { confirm: "本当に削除しますか？" } do
+          %i.fas.fa-trash-alt
+            %span 削除

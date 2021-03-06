@@ -10,6 +10,7 @@ import "channels"
 import '../stylesheets/application.scss'
 import "jquery"
 import "../modules/jquery.bgswitcher"
+import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
 Turbolinks.start()

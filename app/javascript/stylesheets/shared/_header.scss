@@ -27,16 +27,16 @@
       font-size: 30px;
       a{
          display: flex;
-         i {
-            text-shadow: $shadow-red;
+         svg {
+            filter: $dshadow-red;
          }
          .header-post__text {
             margin-left: 5px;
          }
       }
       a:hover {
-         i {
-            text-shadow: $shadow-red-hover2;
+         svg {
+            filter: $dshadow-white;
             color: $red;
          }
       }

@@ -9,18 +9,19 @@
     display: inline-block;
     font-size: 25px;
     margin-bottom: 5px;
+    svg {
+      margin-top: 5px;
+      font-size: 30px;
+      filter: $dshadow-red;
+    }
   }
-  i{
-    margin-top: 5px;
-    font-size: 30px;
-    text-shadow: $shadow-red;
-  }
+
 }
 .post-btn:hover {
   text-shadow: $shadow-line;
   box-shadow: $shadow-line;
-  i {
-    text-shadow: $shadow-red-hover2;
+  svg {
+    filter: $dshadow-white;
     color: $red;
  }
 }

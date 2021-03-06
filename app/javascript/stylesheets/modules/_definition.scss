@@ -14,6 +14,10 @@ $shadow-red-hover: 5px  5px 14px #ffffff ,-5px  5px 14px #ffffff ,5px -5px 14px 
 $shadow-red-hover2: 2px  2px 7px #ffffff ,-2px  2px 7px #ffffff ,2px -2px 7px #ffffff ,-2px -2px 7px #ffffff;
 $shadow-line: 2px 0 0 #000, 0 2px 0 #000, -2px 0 0 #000, 0 -2px 0 #000;
 
+// filter drop-shadow
+$dshadow-red: drop-shadow(0 0 7px #FF0000);
+$dshadow-white: drop-shadow(0 0 5px #FFFFFF);
+
 // fonts
 @font-face {
   font-family: 'Pigmo';

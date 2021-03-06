@@ -1,0 +1,45 @@
+%aside#sidebar.scroll
+  #sidebar-cover
+    %nav#global-nav
+      %ul
+        .avatar
+        - if current_user.image.present?
+          = link_to image_tag(current_user.image.url, class: "sidebar-avater avater__user"), mypage_path(current_user.id)
+        - else
+          = link_to image_tag("/gest-avater.png", class: "sidebar-avater avater__gest"), mypage_path(current_user.id)
+        .user-name
+          = link_to mypage_path(current_user.id), class: "nav-link" do
+            = current_user.name
+        .follow-count
+          .followings
+            = link_to following_mypage_path(current_user.id), class: "nav-link" do
+              フォロー:
+              = current_user.followings.length
+          .followers
+            = link_to followers_mypage_path(current_user.id), class: "nav-link" do
+              フォロワー:
+              = current_user.followers.length
+        %li.btn.sidebar-btn
+          = link_to posts_path, class: "nav-link" do
+            %img{src: "/icon03.jpg"}
+            風呂一覧
+        %li.btn.sidebar-btn
+          = link_to random_path, 'data-no-turbolink' => false, class: "nav-link" do
+            %i.fas.fa-map-pin
+            ダーツ検索
+        %li.btn.sidebar-btn
+          = link_to mypage_path(current_user.id), class: "nav-link" do
+            %i.fas.fa-user
+            マイページ
+        %li.btn.sidebar-btn
+          = link_to notifications_path, class: "nav-link" do
+            %i.fas.fa-bell
+            お知らせ
+        %li.btn.sidebar-btn
+          = link_to following_mypage_path(current_user.id), class: "nav-link" do
+            %i.fas.fa-users
+            フォロー
+        %li.btn.sidebar-btn.logout-btn
+          = link_to destroy_user_session_path, method: :delete, class: "nav-link" do
+            %img{src: "/icon05.jpg"}
+            退場

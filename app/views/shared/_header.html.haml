@@ -1,0 +1,12 @@
+%header#global-head
+  .header-logo
+    = link_to root_path do
+      %span.point1 風
+      %span.point1 呂
+      %span.point2 魂
+  - if user_signed_in?
+    .header-post
+      = link_to new_post_path do
+        %i.fas.fa-edit
+        .header-post__text
+          投稿

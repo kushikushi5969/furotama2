@@ -1,0 +1,52 @@
+= render 'shared/nav-toggle'
+= render 'shared/sidebar'
+#container
+  = render 'shared/header'
+  .contents
+    .purpose おすすめの湯を追加
+    = form_for @post do |f|
+      .post-form
+        .img-box
+          .post-form-group#img
+            .section 投稿画像（5枚まで）
+            = f.fields_for :image do |i|
+              %ul#previews
+                %li.input
+                  %label.upload-lab
+                    .upload-lab-text
+                      %i.fas.fa-images
+                      %br
+                      %p.up-text 写真をアップロード
+                      .input-box
+                        = i.file_field :image, class: "hidden image_upload"
+        .input-box
+          .text-box
+            .post-form-group#name
+              .section 温泉・銭湯名（20字）
+              = f.text_field :name, placeholder: "例）大江戸温泉", required: true, maxlength: '20', class: "post-form-control post-name"
+            .post-form-group#review
+              .section おすすめのポイント
+              = f.text_area :review, placeholder: '例）露天風呂からの景色が最高！', required: true, maxlength: '150', rows: "5", onkeyup: "countLength(value, 'text-length');", class: "post-form-control post-text"
+              .text-length#text-length 0/150
+          .areas-box
+            %ul.area-box
+              %li.post-form-group#area
+                .section エリア
+                .form-select-area
+                = f.collection_select :area_id, @area_parent, :id, :name, {prompt: "選択してください"}, class: 'post-form-control post-select', id: 'parent_area'
+            .post-form-group#adress
+              .section 住所
+              = f.text_field :address, placeholder: "例）東京都江東区青海２丁目６−３", required: true, maxlength: '20', class: "post-form-control post-adress"
+        .category-box
+          .post-form-group#category
+            .section カテゴリー（任意）
+            .form-check-category
+              = f.collection_check_boxes :category_ids, @categories, :id, :name do |category|
+                = category.label do
+                  = category.check_box
+                  = category.text
+            .form-check-category
+        .post-form-group
+          = f.submit "追加する", { class: "btn post-form-btn" }
+  = render 'shared/footer'
+

@@ -1,0 +1,20 @@
+= render 'shared/nav-toggle'
+= render 'shared/sidebar'
+#container
+  = render 'shared/header'
+  %main#main
+    = render 'shared/search'
+    .border-line
+    %section.inner
+      - if @posts_search.present?
+        %ul.post-index
+          - @posts_search.each do |post|
+            = render 'shared/post', post: post
+        = paginate @posts_search
+      - else
+        .search-result-board
+          .search-result-text
+            検索結果は
+            %span 0件です。。
+  = render 'shared/post_btn'
+  = render 'shared/footer'

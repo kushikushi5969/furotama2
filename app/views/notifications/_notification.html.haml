@@ -1,0 +1,44 @@
+- visitor = notification.visitor
+- visited = notification.visited
+.notification-list
+  .notification-user
+    .avatar
+    - if visitor.image.present?
+      = link_to image_tag(visitor.image.url, class: "notification-avater avater__user"), mypage_path(visitor.id)
+    - else
+      = link_to image_tag("/gest-avater.png", class: "notification-avater avater__gest"), mypage_path(visitor.id)
+    .user-name
+      = link_to mypage_path(visitor.id), class: "nav-link" do
+        = visitor.name + 'さん'
+      が
+  .notification-info
+    - case notification.action
+    - when 'follow' then
+      .notification-info-text
+        あなたをフォローしました。
+    - when 'favorite' then
+      .notification-info-text
+        = link_to 'あなたの投稿', notification.post
+        にいいねしました。
+    - when 'comment' then
+      - if notification.post.user_id == visited.id
+        .notification-info-text
+          = link_to post_path(notification.post), class: "nav-link" do
+            あなたの投稿
+          にコメントしました。
+      - else
+        .notification-user
+          .avatar
+          - if notification.post.user.image.present?
+            = link_to image_tag(notification.post.user.image.url, class: "notification-avater avater__user"), post_path(notification.post)
+          - else
+            = link_to image_tag("/gest-avater.png", class: "notification-avater avater__gest"), post_path(notification.post)
+          .user-name
+            = link_to post_path(notification.post), class: "nav-link" do
+              = notification.post.user.name + 'さんの投稿'
+          にコメントしました。
+      .comment-text
+        = notification.comment.text.truncate(26, omission: '...（略）')
+  .notification-time
+    = time_ago_in_words(notification.created_at).upcase + "前"
+

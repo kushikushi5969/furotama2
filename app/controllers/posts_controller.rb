@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.images.new
     @categories = Category.all
+    @areas = Area.all
   end
 
   def create
@@ -70,10 +71,6 @@ class PostsController < ApplicationController
     @comments = @post.comments.order('created_at')
     gon.post = @post
   end
-
-  # def get_area_children
-  #   @area_children = Area.find_by(id: params[:parent_id].to_s, ancestry: nil).children
-  # end
 
   private
 

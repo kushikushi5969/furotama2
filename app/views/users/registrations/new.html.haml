@@ -1,0 +1,44 @@
+= render 'shared/header'
+
+.contents
+  .purpose ご新規登録
+  .user-form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "users/shared/error_messages", resource: resource
+      .user-form-group
+        = f.label :name, "ニックネーム"
+        %br/
+        = f.text_field :name, autofocus: true, required: true, maxlength: '15', class: "user-form-control"
+      .user-form-group
+        = f.label :email, "メールアドレス"
+        %br/
+        = f.email_field :email, autocomplete: "email", required: true, class: "user-form-control-email"
+      .user-form-group
+        = f.label :password, "パスワード（六文字以上）"
+        %br/
+        = f.password_field :password, autocomplete: "new-password", required: true, minlength: @minimum_password_length, class: "user-form-control"
+      .user-form-group
+        = f.label :password_confirmation, "パスワード（確認用）"
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", required: true, minlength: @minimum_password_length, class: "user-form-control"
+      .user-form-group
+        = f.label :image, "アイコン（任意）"
+        %br/
+        #img-prv
+        %label.btn.form-img
+          画像をアップロード
+          %i.fas.fa-images
+          .img-field
+            = f.file_field :image, type: 'file', value: "", class: "hidden", id: "user-img"
+      .user-form-group
+        = f.submit "アカウント作成", class: "btn user-btn"
+      .btn.gest-btn
+        = link_to users_guest_sign_in_path, method: :post,　class: "nav-link" do
+          %img{src: "/icon04.jpg"}
+          お試し入場
+      .btn.login-btn
+        = link_to new_user_session_path, class: "nav-link" do
+          %img{src: "/icon02.jpg"}
+          入場
+
+= render 'shared/footer'

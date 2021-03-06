@@ -1,0 +1,21 @@
+= render 'shared/header'
+
+.contents
+  .purpose パスワード再設定
+  .user-form
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = f.hidden_field :reset_password_token
+      .password-text
+        新しいパスワードを設定します。
+      .user-form-group
+        = f.label :password, "パスワード（六文字以上）"
+        %br/
+        = f.password_field :password, autocomplete: "new-password", required: true, minlength: @minimum_password_length, class: "user-form-control"
+      .user-form-group
+        = f.label :password_confirmation, "パスワード（確認用）"
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", required: true, minlength: @minimum_password_length, class: "user-form-control"
+      .user-form-group
+        = f.submit "変更", class: "btn user-btn"
+
+= render 'shared/footer'

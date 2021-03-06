@@ -1,0 +1,18 @@
+= render 'shared/header'
+
+.contents
+  .purpose パスワード再発行
+  .user-form
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      .password-text
+        メールアドレスを入力して下さい。
+        %br
+        再設定のリンクをお送り致します。
+      .user-form-group
+        = f.label :email, "メールアドレス"
+        %br/
+        = f.email_field :email, autocomplete: "email", required: true, class: "user-form-control-email"
+      .user-form-group
+        = f.submit "送信", class: "btn user-btn"
+  .blank
+= render 'shared/footer'

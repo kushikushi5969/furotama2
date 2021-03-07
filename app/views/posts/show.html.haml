@@ -60,13 +60,17 @@
             .info-clm__cont2
               - @post.category_ids.each do |category|
                 - if category == 1
-                  %i.fas.fa-parking 駐車場有り
+                  %i.fas.fa-parking
+                  駐車場有り
                 - if category == 2
-                  %i.fas.fa-utensils お食事処有り
+                  %i.fas.fa-utensils
+                  お食事処有り
                 - if category == 3
-                  %i.fas.fa-smoking 喫煙所有り
+                  %i.fas.fa-smoking
+                  喫煙所有り
                 - if category == 4
-                  %i.fas.fa-credit-card クレジット払い可
+                  %i.fas.fa-credit-card
+                  クレジット払い可
       - if current_user.id == @post.user.id || current_user.admin?
         %ul.user-sections
           %li.btn.edit-btn

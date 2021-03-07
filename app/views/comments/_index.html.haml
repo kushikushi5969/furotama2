@@ -1,0 +1,29 @@
+.comments-title
+  %i.fas.fa-comment-dots
+  コメント数
+  （
+  = comments.length
+  ）
+- if comments.present?
+  - comments.each do |comment|
+    %li.comments-list
+      .comment-user-avater
+        = link_to mypage_path(comment.user.id), class: "nav-link" do
+          - if comment.user.image.present?
+            = image_tag(comment.user.image.url, class: "post-comment-avater comment__user")
+          - else
+            = image_tag("/gest-avater.png", class: "post-comment-avater comment__gest")
+          - if current_user.id == comment.user.id || current_user.admin?
+            .comment-destroy
+              = link_to post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'nav-link' do
+                %i.fas.fa-trash-alt
+      .comment-text-box
+        .comment-user__name
+          = comment.user.name
+        .comment-user-text
+          = comment.text
+        .comment-date
+          = comment.created_at.to_s(:datetime_jp)
+- else
+  %li.comments-list.no-comment
+    まだコメントはありません。

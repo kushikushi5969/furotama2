@@ -1,0 +1,3 @@
+= form_with(model: [post, comment], url: post_comments_path(@post), class: 'form-comment') do |f|
+  = f.text_area :text, placeholder: "150字以内", class: "comment-controll"
+  = f.submit "送信", class: "btn comment-btn"

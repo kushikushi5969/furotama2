@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_user, only: [:edit, :update]
-  before_action :set_parents
 
   def index
     @posts = Post.includes(:user, :images, :area, :categories, :favorites, :comments).order('created_at desc').page(params[:page]).per(10)
@@ -27,8 +26,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @area = @post.area
-    @area_child = Area.where('ancestry = ?', "#{@area.ancestry}")
+    @areas = Area.all
+    # @area = @post.area
     @categories = Category.all
   end
 
@@ -86,10 +85,6 @@ class PostsController < ApplicationController
       images_attributes: [:image, :id]
     )
     .merge(user_id: current_user.id)
-  end
-
-  def set_parents
-    @area_parent = Area.where(ancestry: nil)
   end
 
   def ensure_user

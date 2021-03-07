@@ -48,14 +48,7 @@
               %li.post-form-group#area
                 .section エリア
                 .form-select-area
-                %select{class: 'post-form-control post-select', id: "parent_area", name: "item[category_id][]", data: {root: @area.root.id}}
-                  %option{value: ""} 選択してください
-                  - Area.where('ancestry IS NULL').each do |a|
-                    %option{value: "#{a.id}"} #{a.name}
-              %li.post-form-group#prefectures
-                .section 都道府県
-                .form-select-area
-                = f.collection_select :area_id, @area_child, :id, :name, {prompt: "選択してください"}, class: 'post-form-control post-select', id: 'child_area'
+                = f.collection_select :area_id, @areas, :id, :name, {prompt: "選択してください"}, class: 'post-form-control post-select'
             .post-form-group#adress
               .section 住所
               = f.text_field :address, placeholder: "例）東京都江東区青海２丁目６−３", required: true, maxlength: '20', class: "post-form-control post-adress"

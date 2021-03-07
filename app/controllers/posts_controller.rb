@@ -27,7 +27,6 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @areas = Area.all
-    # @area = @post.area
     @categories = Category.all
   end
 

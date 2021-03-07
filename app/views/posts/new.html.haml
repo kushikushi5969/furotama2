@@ -26,14 +26,14 @@
               = f.text_field :name, placeholder: "例）大江戸温泉", required: true, maxlength: '20', class: "post-form-control post-name"
             .post-form-group#review
               .section おすすめのポイント
-              = f.text_area :review, placeholder: '例）露天風呂からの景色が最高！', required: true, maxlength: '150', rows: "5", onkeyup: "countLength(value, 'text-length');", class: "post-form-control post-text"
+              = f.text_area :review, placeholder: '例）露天風呂からの景色が最高！', required: true, maxlength: '150', rows: "5", onkeyup: "countLength()", class: "post-form-control post-text", id: "post_review"
               .text-length#text-length 0/150
           .areas-box
             %ul.area-box
               %li.post-form-group#area
                 .section エリア
                 .form-select-area
-                = f.collection_select :area_id, @areas, :id, :name, {prompt: "選択してください"}, class: 'post-form-control post-select', id: 'parent_area'
+                = f.collection_select :area_id, @areas, :id, :name, {prompt: "選択してください"}, class: 'post-form-control post-select'
             .post-form-group#adress
               .section 住所
               = f.text_field :address, placeholder: "例）東京都江東区青海２丁目６−３", required: true, maxlength: '20', class: "post-form-control post-adress"

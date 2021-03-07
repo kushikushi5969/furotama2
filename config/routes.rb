@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
+  resources :restaurants, only: [:index, :show]
   namespace :admin do
     resources :restaurants, only: [:index, :new, :create, :show,  :edit, :destroy]
   end
@@ -29,4 +30,6 @@ Rails.application.routes.draw do
   get 'random', to: 'searches#random_search'
 
   resources :notifications, only: [:index]
+
+  resources :relationships, only: [:create, :destroy]
 end

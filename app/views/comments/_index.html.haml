@@ -6,7 +6,7 @@
   ）
 - if comments.present?
   - comments.each do |comment|
-    %li.comments-list
+    %li.comments-list{id: "comments-list-#{comment.id}"}
       .comment-user-avater
         = link_to mypage_path(comment.user.id), class: "nav-link" do
           - if comment.user.image.present?
@@ -15,7 +15,7 @@
             = image_tag("/gest-avater.png", class: "post-comment-avater comment__gest")
           - if current_user.id == comment.user.id || current_user.admin?
             .comment-destroy
-              = link_to post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'nav-link' do
+              = link_to post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: "本当に削除しますか？", remote: true }, class: 'nav-link' do
                 %i.fas.fa-trash-alt
       .comment-text-box
         .comment-user__name

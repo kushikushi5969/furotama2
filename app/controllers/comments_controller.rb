@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[destroy]
+  before_action :set_comment, only: :destroy
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
@@ -10,10 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
     @comment.destroy
-    # render :destroy
-    # redirect_to post_path(@post.id), alert: 'コメントを削除しました'
   end
 
   private

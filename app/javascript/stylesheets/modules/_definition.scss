@@ -99,3 +99,8 @@ body {
   text-shadow: $shadow-white;
   box-shadow: $shadow-white;
 }
+svg {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1em;
+}

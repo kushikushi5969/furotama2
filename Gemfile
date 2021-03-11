@@ -34,11 +34,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
-  # gem "capistrano", "~> 3.10", require: false
-  # gem "capistrano-rails", "~> 1.6", require: false
-  # gem 'capistrano-rbenv', '~> 2.2'
-  # gem 'capistrano-rbenv-vars', '~> 0.1'
-  # gem 'capistrano3-puma', '< 5'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do

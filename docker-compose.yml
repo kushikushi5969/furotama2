@@ -14,6 +14,7 @@ services:
     volumes:
       - .:/furotama2
       - gem_data:/usr/local/bundle
+      - ./.ssh
     ports:
       - "3000:3000"
     depends_on:

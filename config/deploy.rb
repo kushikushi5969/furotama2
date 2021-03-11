@@ -16,8 +16,11 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.6.5'
 
 # どの公開鍵を利用してデプロイするか
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/furotama_aws_app.pem']
+set :ssh_options, {
+  keys: %w(~/.ssh/furotama_aws_app.pem),
+  forward_agent: true,
+  auth_methods: %w(publickey),
+}
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }

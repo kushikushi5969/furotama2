@@ -50,6 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: furotama2_production
-  username: furotama2
-  password: <%= ENV['FUROTAMA2_DATABASE_PASSWORD'] %>
+  database: furotama_aws_app_production
+  username: root
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:hostname] %>

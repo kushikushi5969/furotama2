@@ -17,6 +17,7 @@ set :rbenv_ruby, '2.6.5'
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, {
+  user: 'kussy',
   keys: %w(~/.ssh/furotama_aws_app.pem),
   forward_agent: true,
   auth_methods: %w(publickey),

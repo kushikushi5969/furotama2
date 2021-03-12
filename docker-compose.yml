@@ -14,15 +14,13 @@ services:
     volumes:
       - .:/furotama2
       - gem_data:/usr/local/bundle
-      - "$SSH_AUTH_SOCK:/tmp/ssh-agent.sock"
+      - "$SSH_AUTH_SOCK_APP:/tmp/ssh-agent.sock"
     ports:
       - "3000:3000"
     depends_on:
       - db
     environment:
-      - EDITOR=vim
       SSH_AUTH_SOCK: "/tmp/ssh-agent.sock"
-
 
 volumes:
   gem_data:

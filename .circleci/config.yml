@@ -23,13 +23,13 @@ jobs:
       - restore_cache:
           # リストアするキャッシュの複数指定
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-{{ checksum "Gemfile.lock" }}
             # 変更があったら↓
-            - v1-dependencies-
+            - v1-bundle-
       # コマンドを実行
       - run:
           # runの名称（任意）警告、エラー、出力などを返す際に、CircleCIのWEB上に表示される
-          name: install dependencies
+          name: install bundle
           # コマンドの指定、｜（パイプ）は複数行のシェルコマンドを示す
           command: |
             gem install bundler
@@ -40,7 +40,15 @@ jobs:
           paths:
             - ./vendor/bundle
           # キャッシュの名前を指定
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: v1-bundle-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          keys:
+            - v1-yarn-{{ checksum "yarn.lock" }}
+            - v1-yarn-
+      - run:
+          name: install yarn
+          command: yarn install --cache-folder ~/.cache/yarn
+      - run: bundle exec bin/webpack
       # database.ymlとdatabase.yml.ciを入れ替える
       - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create

@@ -58,7 +58,12 @@ jobs:
           name: Rspec
           command:
             bundle exec rspec
-
+# デプロイ実行
       - add_ssh_keys:
           fingerprints:
             - "${KEY_FINGERPRINT}"
+
+      - deploy:
+          name: Capistrano deploy
+          command:
+　　　　　　  bundle exec cap production deploy

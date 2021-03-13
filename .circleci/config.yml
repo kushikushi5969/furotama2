@@ -44,8 +44,8 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       # # database.ymlとdatabase.yml.ciを入れ替える
       # - run: mv config/database.yml.ci config/database.yml
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
       # rspecを走らせる記述
       - run:
           name: Rspec

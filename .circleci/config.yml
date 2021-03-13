@@ -58,7 +58,7 @@ jobs:
           name: Rspec
           command:
             bundle exec rspec
-# デプロイ実行
+      # デプロイ実行
       - add_ssh_keys:
           fingerprints:
             - "${KEY_FINGERPRINT}"

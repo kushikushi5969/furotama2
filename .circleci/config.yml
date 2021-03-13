@@ -10,8 +10,10 @@ jobs:
           - RAILS_ENV: 'test'
       - image: circleci/mysql:5.7
         environment:
-          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          - MYSQL_ROOT_HOST: '%'
+          # - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          # - MYSQL_ROOT_HOST: '%'
+          - MYSQL_ROOT_PASSWORD: password
+          - MYSQL_DATABASE: furotama2
     # 実行ディレクトリの設定
     working_directory: ~/furotama2
     # CI環境上で動作させるコマンドや実行結果の保存、キャッシュ操作などの設定
@@ -40,8 +42,8 @@ jobs:
             - ./vendor/bundle
           # キャッシュの名前を指定
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-      # database.ymlとdatabase.yml.ciを入れ替える
-      - run: mv config/database.yml.ci config/database.yml
+      # # database.ymlとdatabase.yml.ciを入れ替える
+      # - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       # rspecを走らせる記述

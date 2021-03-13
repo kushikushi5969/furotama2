@@ -8,7 +8,7 @@ jobs:
       - image: circleci/ruby:2.6.5-node-browsers
         environment:
           - RAILS_ENV: 'test'
-      - image: circleci/mysql:5.7.33
+      - image: circleci/mysql:5.7
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'

@@ -3,6 +3,8 @@ FactoryBot.define do
     name   { "テスト温泉" }
     review { "露天風呂が最高！" }
     address { "北海道札幌市" }
+    latitude { "43.0687" }
+    longitude { "141.349" }
     association :user, factory: :user
     association :area, factory: :area
     after(:build) do |post|

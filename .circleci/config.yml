@@ -12,8 +12,8 @@ jobs:
         environment:
           # - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           # - MYSQL_ROOT_HOST: '%'
-          - MYSQL_ROOT_PASSWORD: password
-          - MYSQL_DATABASE: furotama2
+          - MYSQL_ROOT_PASSWORD: 'password'
+          - MYSQL_DATABASE: 'furotama2'
     # 実行ディレクトリの設定
     working_directory: ~/furotama2
     # CI環境上で動作させるコマンドや実行結果の保存、キャッシュ操作などの設定

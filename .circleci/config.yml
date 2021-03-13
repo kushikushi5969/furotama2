@@ -1,0 +1,70 @@
+version: 2
+# １つ以上設定する。jobが1つだけの場合、job名は build
+jobs:
+  build:
+    # CI環境で利用するDockerコンテナあるいはVMイメージの指定
+    docker:
+      # ベースとなるDockerイメージを指定（複数指定も可）
+      - image: circleci/ruby:2.6.5-node-browsers
+        environment:
+          - RAILS_ENV: 'test'
+      - image: circleci/mysql:5.7.33
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '%'
+    # 実行ディレクトリの設定
+    working_directory: ~/furotama2
+    # CI環境上で動作させるコマンドや実行結果の保存、キャッシュ操作などの設定
+    steps:
+      # CI環境上のworking_directoryにGitリポジトリをコピーする
+      - checkout
+      # キャッシュのリストア
+      - restore_cache:
+          # リストアするキャッシュの複数指定
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # 変更があったら↓
+            - v1-dependencies-
+      # コマンドを実行
+      - run:
+          # runの名称（任意）警告、エラー、出力などを返す際に、CircleCIのWEB上に表示される
+          name: install dependencies
+          # コマンドの指定、｜（パイプ）は複数行のシェルコマンドを示す
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      # パッケージなどのファイルをキャッシュする（ここではbundle installのデータをキャッシュ）
+      - save_cache:
+          # キャッシュするファイルを指定する
+          paths:
+            - ./vendor/bundle
+          # キャッシュの名前を指定
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      # database.ymlとdatabase.yml.ciを入れ替える
+      - run: mv config/database.yml.ci config/database.yml
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+
+# rubocopを走らせる記述です。
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+      # rspecを走らせる記述
+      - run:
+          name: Rspec
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+      # テスト結果を表示するための記述。テスト結果が配置されているディレクトリを指定
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results

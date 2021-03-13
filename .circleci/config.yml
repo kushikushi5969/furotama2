@@ -63,7 +63,7 @@ jobs:
           fingerprints:
             - "${KEY_FINGERPRINT}"
 
-#       - deploy:
-#           name: Capistrano deploy
-#           command:
-# 　　　　　　  bundle exec cap production deploy
+      - deploy:
+          name: Capistrano deploy
+          command:
+　　　　　　  bundle exec cap production deploy

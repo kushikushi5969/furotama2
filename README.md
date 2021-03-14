@@ -49,7 +49,7 @@ Googleマップで見つけた銭湯は、番台があって番頭さんが座�
 # デザイン一覧
 #### ダーツ検索画面（投稿ランダム表示）
 <!-- <img width="1673" alt="ダーツ検索" src="https://user-images.githubusercontent.com/59913169/111071689-a6dbd200-851a-11eb-89ba-fe051c4fb307.png"> -->
-[![Image from Gyazo](https://i.gyazo.com/6c3d818f1c5ed4503a2eefbc5151e44a.gif)](https://gyazo.com/6c3d818f1c5ed4503a2eefbc5151e44a)
+https://user-images.githubusercontent.com/59913169/111076261-f88e5780-852e-11eb-98d8-b8970b1e6c1b.mov
 
 #### レスポンシブ一覧
 <div align="center">

@@ -42,7 +42,9 @@ http://furotama.com/<br>
   - Rspec
 
 # AWS構成図
-![AWS構成](https://user-images.githubusercontent.com/59913169/111087406-ca2b6f00-8564-11eb-868c-9c832c53e66f.png)
+<div align="center">
+<img width="1014" alt="AWS" src="https://user-images.githubusercontent.com/59913169/111087406-ca2b6f00-8564-11eb-868c-9c832c53e66f.png">
+</div>
 
 # ER図
 <div align="center">
@@ -139,6 +141,7 @@ Googleマップで見つけた銭湯は、番台があって番頭さんが座�
 </div>
 
 # 今後の実装予定
+詳細は[issues](#issues)に記載しております。
 
 ## リンク先
 ・[TOP](#風呂魂)　・[URL](#URL)　・[使用技術・環境](#使用技術・環境)　・[AWS構成図](#AWS構成図)　・[ER図](#ER図)<br>

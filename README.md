@@ -1,13 +1,18 @@
 # 風呂魂
-風呂好きのための、温泉・銭湯を位置情報付きで投稿できるサービスです。<br>
 <img width="1670" alt="トップビュー" src="https://user-images.githubusercontent.com/59913169/111071974-eeaf2900-851b-11eb-94fb-bf088d86aac1.png">
 
-# URL
+# 概要
+風呂好きのための、温泉・銭湯を位置情報付きで投稿できるサービスです。<br>
+## URL
 http://furotama.com/<br>
 画面中央の**お試し入場**からゲストログイン出来ます。<br>
-また、デザイン一覧を下部に設置しております。<br>
+以下、リンク先<br>
+[使用技術・環境へ](#使用技術・環境)<br>
+[AWS構成図へ](#AWS構成図)<br>
+[ER図へ](#ER図)<br>
+[機能一覧へ](#機能一覧)<br>
+[制作背景へ](#制作背景)<br>
 [デザイン一覧へ](#デザイン一覧)
-
 
 # 使用技術・環境
 - フロントエンド
@@ -32,6 +37,10 @@ http://furotama.com/<br>
   - レスポンシブデザイン対応
   - Google Cloud Platform
   - Rspec
+
+# AWS構成図
+# ER図
+
 # 機能一覧
 
 
@@ -46,10 +55,12 @@ Googleマップで見つけた銭湯は、番台があって番頭さんが座�
 そこで、風呂好きが自由に湯屋を投稿できるサービスを作れば、<br>
 ランキング形式では見つけられない、隠れた秘湯や銭湯を共有出来ると考えました。<br>
 
-# デザイン一覧
+# デザイン一覧（一部）
 #### ダーツ検索画面（投稿ランダム表示）
-<!-- <img width="1673" alt="ダーツ検索" src="https://user-images.githubusercontent.com/59913169/111071689-a6dbd200-851a-11eb-89ba-fe051c4fb307.png"> -->
-https://user-images.githubusercontent.com/59913169/111076261-f88e5780-852e-11eb-98d8-b8970b1e6c1b.mov
+<img width="1665" alt="ダーツ検索" src="https://user-images.githubusercontent.com/59913169/111071689-a6dbd200-851a-11eb-89ba-fe051c4fb307.png">
+
+#### お知らせ機能
+<img width="1665" alt="お知らせページ" src="https://user-images.githubusercontent.com/59913169/111076645-83238680-8530-11eb-8626-327f644f3814.png">
 
 #### レスポンシブ一覧
 <div align="center">

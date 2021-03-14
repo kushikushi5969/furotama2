@@ -141,7 +141,7 @@ Googleマップで見つけた銭湯は、番台があって番頭さんが座�
 </div>
 
 # 今後の実装予定
-詳細は[issues](#issues)に記載しております。
+詳細は[issues](https://github.com/kushikushi5969/furotama2/issues)に記載しております。
 
 ## リンク先
 ・[TOP](#風呂魂)　・[URL](#URL)　・[使用技術・環境](#使用技術・環境)　・[AWS構成図](#AWS構成図)　・[ER図](#ER図)<br>

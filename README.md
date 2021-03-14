@@ -6,7 +6,7 @@
 http://furotama.com/<br>
 画面中央の**お試し入場**からゲストログイン出来ます。<br>
 また、デザイン一覧を下部に設置しております。<br>
-[デザイン](#デザイン)
+[デザイン一覧へ](#デザイン一覧)
 
 
 # 使用技術・環境
@@ -46,9 +46,10 @@ Googleマップで見つけた銭湯は、番台があって番頭さんが座�
 そこで、風呂好きが自由に湯屋を投稿できるサービスを作れば、<br>
 ランキング形式では見つけられない、隠れた秘湯や銭湯を共有出来ると考えました。<br>
 
-# デザイン
+# デザイン一覧
 #### ダーツ検索画面（投稿ランダム表示）
-<img width="1673" alt="ダーツ検索" src="https://user-images.githubusercontent.com/59913169/111071689-a6dbd200-851a-11eb-89ba-fe051c4fb307.png">
+<!-- <img width="1673" alt="ダーツ検索" src="https://user-images.githubusercontent.com/59913169/111071689-a6dbd200-851a-11eb-89ba-fe051c4fb307.png"> -->
+[![Image from Gyazo](https://i.gyazo.com/6c3d818f1c5ed4503a2eefbc5151e44a.gif)](https://gyazo.com/6c3d818f1c5ed4503a2eefbc5151e44a)
 
 #### レスポンシブ一覧
 <div align="center">

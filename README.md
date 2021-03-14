@@ -1,10 +1,12 @@
 # 風呂魂
+___
 風呂好きのための、温泉・銭湯を位置情報付きで投稿できるサービスです。<br>
 <img width="844" alt="トップビュー" src="https://user-images.githubusercontent.com/59913169/111071974-eeaf2900-851b-11eb-94fb-bf088d86aac1.png">
 
 # URL
+___
 http://furotama.com/<br>
-画面中央の***お試し入場***からゲストログイン出来ます。<br>
+画面中央の**お試し入場**からゲストログイン出来ます。<br>
 また、デザイン一覧を下部に設置しております。<br>
 <a herf="#デザイン">デザインへのリンク</a>
 
@@ -47,10 +49,12 @@ Googleマップで見つけた銭湯は、番台があって番頭さんが座�
 ランキング形式では見つけられない、隠れた秘湯や銭湯を共有出来ると考えました。<br>
 
 # デザイン
-### ダーツ検索画面（投稿ランダム表示）
+#### ダーツ検索画面（投稿ランダム表示）
 <img width="1673" alt="ダーツ検索" src="https://user-images.githubusercontent.com/59913169/111071689-a6dbd200-851a-11eb-89ba-fe051c4fb307.png">
 
-### レスポンシブ一覧
-<img width="330" alt="スマホtop" src="https://user-images.githubusercontent.com/59913169/111074601-0b9d2980-8527-11eb-8681-d3ba036d5c01.png">
-<img width="330" alt="スマホ投稿詳細" src="https://user-images.githubusercontent.com/59913169/111072093-6e3cf800-851c-11eb-9d91-246b37a662ad.png">
-<img width="330" alt="スマホ新規投稿" src="https://user-images.githubusercontent.com/59913169/111074170-1656bf00-8525-11eb-830d-040dc7c9099f.png">
+#### レスポンシブ一覧
+<div align="center">
+<img width="330"　title="スマホtop" alt="スマホtop" src="https://user-images.githubusercontent.com/59913169/111074601-0b9d2980-8527-11eb-8681-d3ba036d5c01.png">
+<img width="330"　title="スマホ投稿詳細" alt="スマホ投稿詳細" src="https://user-images.githubusercontent.com/59913169/111072093-6e3cf800-851c-11eb-9d91-246b37a662ad.png">
+<img width="330"　title="スマホ新規投稿" alt="スマホ新規投稿" src="https://user-images.githubusercontent.com/59913169/111074170-1656bf00-8525-11eb-830d-040dc7c9099f.png">
+</div>

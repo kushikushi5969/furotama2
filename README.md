@@ -1,14 +1,12 @@
 # 風呂魂
-___
 風呂好きのための、温泉・銭湯を位置情報付きで投稿できるサービスです。<br>
-<img width="844" alt="トップビュー" src="https://user-images.githubusercontent.com/59913169/111071974-eeaf2900-851b-11eb-94fb-bf088d86aac1.png">
+<img width="1670" alt="トップビュー" src="https://user-images.githubusercontent.com/59913169/111071974-eeaf2900-851b-11eb-94fb-bf088d86aac1.png">
 
 # URL
-___
 http://furotama.com/<br>
 画面中央の**お試し入場**からゲストログイン出来ます。<br>
 また、デザイン一覧を下部に設置しております。<br>
-<a herf="#デザイン">デザインへのリンク</a>
+[デザイン](#デザイン)
 
 
 # 使用技術・環境

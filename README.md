@@ -42,6 +42,7 @@ http://furotama.com/<br>
   - Rspec
 
 # AWS構成図
+![AWS構成](https://user-images.githubusercontent.com/59913169/111087406-ca2b6f00-8564-11eb-868c-9c832c53e66f.png)
 
 # ER図
 <div align="center">
@@ -55,7 +56,7 @@ http://furotama.com/<br>
   - パスワード再発行（mailer）
 - ユーザー機能
   - 編集機能
-    - 上記【必須】【任意】項目＋紹介文の編集が可能
+    - ユーザー名、Email、パスワード、紹介文、アイコンの編集が可能
   - 削除機能
   - マイページ表示
 - 管理人機能（admin）

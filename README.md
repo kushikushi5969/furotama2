@@ -129,6 +129,7 @@ Googleマップで見つけた銭湯は、番台があって番頭さんが座�
 
 #### ダーツ検索画面（投稿ランダム表示）
 <img width="1665" alt="ダーツ検索" src="https://user-images.githubusercontent.com/59913169/111071689-a6dbd200-851a-11eb-89ba-fe051c4fb307.png">
+<img width="1665" alt="ダーツ検索" src="https://user-images.githubusercontent.com/59913169/111088375-407ea000-856a-11eb-9bb0-2baa95ec8a11.mov">
 
 #### お知らせ画面
 <img width="1665" alt="お知らせページ" src="https://user-images.githubusercontent.com/59913169/111076645-83238680-8530-11eb-8626-327f644f3814.png">
